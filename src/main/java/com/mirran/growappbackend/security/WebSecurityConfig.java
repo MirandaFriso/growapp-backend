@@ -13,6 +13,7 @@ import java.util.Arrays;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+//Ev @Configuration här
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -22,14 +23,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                     .and()
                 .authorizeRequests()
-                .antMatchers("/", "/welcome").permitAll()
+                .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                     .and()
                 .formLogin().permitAll();
 
-
+        //Vilken trafik får de komma in.
         //Annan konfigurering här
+
+        //1. Konfiguerar - vilka endpoints ska vi kunna nå.
+        //2. Vilken källa ska det komma ifrån (3000-porten)
+        //CORS-problemet ligger inte på 3000-porten, det är på 8080 vi ska konfigurera CORS.
     }
+
+    //Det är här vi behöver konfigurera trafiken in. Att 8080 tillåter CORS.
+    //Var vi vill ta emot från (vilken källa).
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {

@@ -3,7 +3,7 @@ package com.mirran.growappbackend.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "month")
+@Table(name = "months")
 public class Month {
 
     @Id

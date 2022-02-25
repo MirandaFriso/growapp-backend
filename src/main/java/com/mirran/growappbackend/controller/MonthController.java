@@ -3,6 +3,7 @@ package com.mirran.growappbackend.controller;
 import com.mirran.growappbackend.model.Month;
 import com.mirran.growappbackend.repository.MonthRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +19,13 @@ public class MonthController {
     @Autowired
     MonthRepository monthRepository;
 
+
     @GetMapping("/months")
     public List<Month> getMonths() {
         return this.monthRepository.findAll();
     }
+
+    //get /months/dynamisk månad
+
 }
 
