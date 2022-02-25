@@ -26,7 +26,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                     .and()
-                .formLogin().permitAll();
+                .formLogin().permitAll()
+                .defaultSuccessUrl("http://localhost:3000/growapp", true);
 
         //Vilken trafik får de komma in.
         //Annan konfigurering här
